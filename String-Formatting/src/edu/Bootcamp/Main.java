@@ -34,40 +34,60 @@ System.out.println("String concatenation vs String formatting:");
 
 
 
-//      Similarly to how we used %.2f above to set the decimal of the float to 2 decimal points, we can set the spacing of an array to make things look more organized with String formatting:
-        int w = 54, x = 2359, y = 484311, z = 12141;
-        String numberDisplay1 = String.format("The array without width formatting: \nw:%d x:%d \ny:%d z:%d", w, x, y, z);
+//      Similarly to how we used %.2f above to set the decimal of the float to 2 decimal points, we can set the spacing of an array to make things look more organized with String.format():
+        double w = -54.0515253545, x = 235865439.5262728292;
+        long y = 4843456441145456L, z = -1214554544445133L;
+        String numberDisplay1 = String.format("\nAn array using only the minimum String.format(): \nw:%f   x:%f \ny:%d   z:%d", w, x, y, z); // Notice here that the float-types use %f and the integer types use %d
         System.out.println(numberDisplay1);
 
 //      If we include a number in the String format, we can the number of characters in each formatted String is
-        String numberDisplay2 = String.format("The array with the width formatted: \nw:%9d x:%9d \ny:%9d z:%9d", w, x, y, z);
+        String numberDisplay2 = String.format("\nAn array with String.format() width: \nw:%25f   x:%25f \ny:%25d   z:%25d", w, x, y, z);
         System.out.println(numberDisplay2);
 //      Here, regardless of if the variable had 1 character of 4, each String had a total of 5 characters.
 
 //      We can left justify the spacing with a - character.
-        String numberDisplay3 = String.format("The array left-aligned: \nw:%-9d x:%-9d \ny:%-9d z:%-9d", w, x, y, z);
+        String numberDisplay3 = String.format("\nAn array with String.format() width and left-aligned: \nw:%-25f   x:%-25f \ny:%-25d   z:%-25d", w, x, y, z);
         System.out.println(numberDisplay3);
 //      The last common format flag is -, which displays left justified.
 
 //      And if we'd rather instead have preceding zeroes filling the padding, we can add a 0 to the formatting:
-        String numberDisplay4 = String.format("The array with zero-padding: \nw:%09d x:%09d \ny:%09d z:%09d", w, x, y, z);
+        String numberDisplay4 = String.format("\nAn array with String.format() width and zero-padding: \nw:%025f   x:%025f \ny:%025d   z:%025d", w, x, y, z);
         System.out.println(numberDisplay4);
 
 //      For larger numbers, having a thousands separator helps with visibility. The character needed is a ,
-        String numberDisplay5 = String.format("The array with thousands comma: \nw:%,-9d x:%,-9d \ny:%,-9d z:%,-9d", w, x, y, z);
+        String numberDisplay5 = String.format("\nAn array with String.format() width and thousands comma: \nw:%,25f   x:%,25f \ny:%,25d   z:%,25d", w, x, y, z);
         System.out.println(numberDisplay5);
-        
+
+//      To include include of limit decimal points, append a period and a number to the doubles
+        String numberDisplay6 = String.format("\nAn array with String.format() width and decimal limits on the doubles: \nw:%25.3f   x:%25.0f \ny:%25d   z:%25d", w, x, y, z);
+        System.out.println(numberDisplay6);
+
+//      Negatives can be defined by () rather than - symbols by using the ( symbol. 
+        String numberDisplay7 = String.format("\nAn array with String.format() width and parenthesis on negatives: \nw:%(25f   x:%(25f \ny:%(25d   z:%(25d", w, x, y, z);
+        System.out.println(numberDisplay7);
 
 
-System.out.println("\nFormat flag examples:");
-//      A format-changing flag is to use the # character, which displays the "radix", or information about the base the value.
-         int iVal = 33;
-         String s1 = String.format("iVal's decimal value with default format is %d", iVal);
-         System.out.println(s1);
-         String s2 = String.format("iVal's hexadecimal value without a radix included is %x", iVal);
-         System.out.println(s2);
-         String s3 = String.format("iVal's hexadecimal value with the radix included is %#x", iVal);
-         System.out.println(s3); // Hexadecimal numbers are indicated by the addition of either 0x prefix in Java
+////      And these can be combined in almost any way.
+////      Here is a double array
+//        double m = -54, n = 2359, o = 484311, p = -12141;
+//
+//        String numberDisplay6 = String.format("\nA double array with a combination of String.format() flags: \nm:%22f n:%,22f \no:%,-22.0f p:%0,22f", m, n, o, p);
+//        System.out.println(numberDisplay6);
+//
+////      Radix can be included by using the #!
+////      The radix is the base of a system of numbers, e.g., 2 in the binary system (2 because there are only two number used in binary), or 10 in the decimal system (10 because there are only ten number used in decimals).
+//        String numberDisplay7 = String.format("\nAn array with String.format() width and radix: \nm:%f n:%#f \no:%f p:%f", m, n, o, p);
+//        System.out.println(numberDisplay7);
+//        int iVal = 543210;
+//System.out.println("\nFormat flag examples:");
+////      A format-changing flag is to use the # character, which displays the "radix", or information about the base the value.
+//         String s1 = String.format("iVal's decimal value with default format is %d", iVal);
+//         System.out.println(s1);
+//         String s2 = String.format("iVal's hexadecimal value without a radix included is %x", iVal);
+//         System.out.println(s2);
+//         String s3 = String.format("iVal's hexadecimal value with the radix included is %#x", iVal);
+//         System.out.println(s3); // Hexadecimal numbers are indicated by the addition of either 0x prefix in Java
+
 
     }
 }
