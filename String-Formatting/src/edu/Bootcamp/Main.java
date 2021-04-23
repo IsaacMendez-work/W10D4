@@ -26,16 +26,43 @@ System.out.println("String concatenation vs String formatting:");
         System.out.println(stringConcatenate2);
 //      What we've written in stringConcatenate2 is still pretty easy to read even though we're concatenating, but the resulting message is pretty unwieldy to read, because the double displayed is 3.6666666666666665
 
-        String stringFormat2 = String.format("The average age between each of my nephews is %.1f years.", avgDiff);
+        String stringFormat2 = String.format("The average age between each of my nephews is %.2f years.", avgDiff);
         System.out.println(stringFormat2);
-//      In stringFormat2 we are actually specifying how many decimal points to display, in this case 1, and avgDiff is being shortened and rounded to 3.7
+//      In stringFormat2 we are actually specifying how many decimal points to display, in this case 1, and avgDiff is being shortened and rounded to 3.67
 
-System.out.println("\nFormat examples:");
 //      Common format conversions are %d for decimal, %x for hexadecimal, %f for floating point, %e for scientific notation, and %s for String.
-//      We can use these format conversions with format flags when using String formatting.
-//      A common flag is the #, which displays the "radix", or information about the base the value.
+
+
+
+//      Similarly to how we used %.2f above to set the decimal of the float to 2 decimal points, we can set the spacing of an array to make things look more organized with String formatting:
+        int w = 54, x = 2359, y = 484311, z = 12141;
+        String numberDisplay1 = String.format("The array without width formatting: \nw:%d x:%d \ny:%d z:%d", w, x, y, z);
+        System.out.println(numberDisplay1);
+
+//      If we include a number in the String format, we can the number of characters in each formatted String is
+        String numberDisplay2 = String.format("The array with the width formatted: \nw:%9d x:%9d \ny:%9d z:%9d", w, x, y, z);
+        System.out.println(numberDisplay2);
+//      Here, regardless of if the variable had 1 character of 4, each String had a total of 5 characters.
+
+//      We can left justify the spacing with a - character.
+        String numberDisplay3 = String.format("The array left-aligned: \nw:%-9d x:%-9d \ny:%-9d z:%-9d", w, x, y, z);
+        System.out.println(numberDisplay3);
+//      The last common format flag is -, which displays left justified.
+
+//      And if we'd rather instead have preceding zeroes filling the padding, we can add a 0 to the formatting:
+        String numberDisplay4 = String.format("The array with zero-padding: \nw:%09d x:%09d \ny:%09d z:%09d", w, x, y, z);
+        System.out.println(numberDisplay4);
+
+//      For larger numbers, having a thousands separator helps with visibility. The character needed is a ,
+        String numberDisplay5 = String.format("The array with thousands comma: \nw:%,-9d x:%,-9d \ny:%,-9d z:%,-9d", w, x, y, z);
+        System.out.println(numberDisplay5);
+        
+
+
+System.out.println("\nFormat flag examples:");
+//      A format-changing flag is to use the # character, which displays the "radix", or information about the base the value.
          int iVal = 33;
-         String s1 = String.format("iVal's decimal value is %d", iVal);
+         String s1 = String.format("iVal's decimal value with default format is %d", iVal);
          System.out.println(s1);
          String s2 = String.format("iVal's hexadecimal value without a radix included is %x", iVal);
          System.out.println(s2);
