@@ -25,7 +25,7 @@ System.out.println("Scanner example #1");
 
 
 System.out.println("\nScanner example #2");
-//      In the example below, typing a number returns that number plus two:
+//      In the example below, typing a number returns that number times two:
         System.out.println("Hello! Please type a number below.");
 //      This is just some instructions for the user.
 

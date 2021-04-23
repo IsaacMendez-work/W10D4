@@ -62,32 +62,13 @@ System.out.println("String concatenation vs String formatting:");
         String numberDisplay6 = String.format("\nAn array with String.format() width and decimal limits on the doubles: \nw:%25.3f   x:%25.0f \ny:%25d   z:%25d", w, x, y, z);
         System.out.println(numberDisplay6);
 
-//      Negatives can be defined by () rather than - symbols by using the ( symbol. 
+//      Negatives can be defined by ()s rather than - symbols by using the ( symbol.
         String numberDisplay7 = String.format("\nAn array with String.format() width and parenthesis on negatives: \nw:%(25f   x:%(25f \ny:%(25d   z:%(25d", w, x, y, z);
         System.out.println(numberDisplay7);
 
-
-////      And these can be combined in almost any way.
-////      Here is a double array
-//        double m = -54, n = 2359, o = 484311, p = -12141;
-//
-//        String numberDisplay6 = String.format("\nA double array with a combination of String.format() flags: \nm:%22f n:%,22f \no:%,-22.0f p:%0,22f", m, n, o, p);
-//        System.out.println(numberDisplay6);
-//
-////      Radix can be included by using the #!
-////      The radix is the base of a system of numbers, e.g., 2 in the binary system (2 because there are only two number used in binary), or 10 in the decimal system (10 because there are only ten number used in decimals).
-//        String numberDisplay7 = String.format("\nAn array with String.format() width and radix: \nm:%f n:%#f \no:%f p:%f", m, n, o, p);
-//        System.out.println(numberDisplay7);
-//        int iVal = 543210;
-//System.out.println("\nFormat flag examples:");
-////      A format-changing flag is to use the # character, which displays the "radix", or information about the base the value.
-//         String s1 = String.format("iVal's decimal value with default format is %d", iVal);
-//         System.out.println(s1);
-//         String s2 = String.format("iVal's hexadecimal value without a radix included is %x", iVal);
-//         System.out.println(s2);
-//         String s3 = String.format("iVal's hexadecimal value with the radix included is %#x", iVal);
-//         System.out.println(s3); // Hexadecimal numbers are indicated by the addition of either 0x prefix in Java
-
+//      Negative and positive numbers can be explicitly displayed by using +
+    String numberDisplay8 = String.format("\nAn array with String.format() width and the plus flag: \nw:%+25f   x:%+25f \ny:%+25d   z:%+25d", w, x, y, z);
+    System.out.println(numberDisplay8);
 
     }
 }
